@@ -3,9 +3,8 @@ import { pricingBreakdown, pricingBreakdownSavings, pricingBreakdownTotal, produ
 import type { PricingBreakdownRow } from '../config/product';
 import { formatPrice } from '../lib/pricing';
 import { useLaunchPricing } from '../hooks/useLaunchPricing';
-import { useRazorpayCheckout } from '../hooks/useRazorpayCheckout';
+import { Checkout } from './Checkout';
 import { Container } from './ui/Container';
-import { Button } from './ui/Button';
 
 function BreakdownRow({ label, value }: PricingBreakdownRow) {
   return (
@@ -35,7 +34,6 @@ function BreakdownRow({ label, value }: PricingBreakdownRow) {
 
 export function PricingSection() {
   const { price, hasDeadline, isLaunchActive } = useLaunchPricing();
-  const { handlePayment, isRedirecting } = useRazorpayCheckout();
 
   return (
     <section id="pricing" className="scroll-mt-28 py-16 sm:py-20 lg:py-24">
@@ -77,16 +75,9 @@ export function PricingSection() {
             </p>
           </div>
 
-          <Button
-            variant="primary"
-            size="lg"
-            className="mt-8 w-full"
-            onClick={handlePayment}
-            disabled={isRedirecting}
-            aria-busy={isRedirecting}
-          >
-            {isRedirecting ? 'Opening Secure Payment…' : `Get Instant Access for ${formatPrice(price)}`}
-          </Button>
+          <div className="mt-8">
+            <Checkout />
+          </div>
           <p className="mt-3 text-center text-xs text-text-muted">
             Digital download • No physical delivery • Secure one-time payment
           </p>

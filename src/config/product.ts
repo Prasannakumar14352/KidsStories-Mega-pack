@@ -56,8 +56,14 @@ export const product = {
   tagline: 'Digital Products Marketplace',
   description:
     'A complete digital reading collection containing 50 illustrated children’s stories in ready-to-read PDF and editable DOCX formats, plus five exclusive reading bonuses.',
-  launchPrice: 399,
+  launchPrice: 499,
   regularPrice: 999,
+  /**
+   * USD equivalents charged to non-India visitors via PayPal. Placeholder
+   * values (~₹83/$1) - update to your real international pricing.
+   */
+  launchPriceUSD: 4.99,
+  regularPriceUSD: 11.99,
   mainValue: 999,
   docxValue: 499,
   bonusValue: 695,

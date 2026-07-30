@@ -4,4 +4,4 @@
  * methods on its own hosted page - this app just needs the one static link,
  * shown to every visitor regardless of region.
  */
-export const DODO_PAYMENT_LINK = import.meta.env.VITE_DODO_PAYMENT_LINK || 'https://dodo.pe/28i7y0cx8d8';
+export const DODO_PAYMENT_LINK = import.meta.env.VITE_DODO_PAYMENT_LINK || 'https://dodo.pe/mrd5y57146f';

@@ -82,16 +82,9 @@ export const product = {
    * fabricates urgency.
    */
   launchEndDate: null as string | null,
-  supportEmail: 'support@prodxstore.com',
+  supportEmail: 'prodxstoresupport@gmail.com',
   siteUrl: 'https://www.prodxstore.com',
   licenseSummary: 'Personal and single-classroom use licence',
-  /**
-   * Razorpay Payment Link for direct checkout. Leave empty to fall back to
-   * the VITE_RAZORPAY_PAYMENT_URL environment variable. Never hardcode a
-   * placeholder/fake URL here - an empty value intentionally disables the
-   * pricing button's redirect until a real link is configured.
-   */
-  razorpayPaymentUrl: '' as string,
 } as const;
 
 export const totalValue = product.mainValue + product.bonusValue;

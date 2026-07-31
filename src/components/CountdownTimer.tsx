@@ -1,5 +1,4 @@
 import { Clock } from 'lucide-react';
-import { EXPIRE_BEHAVIOR } from '../config/countdown';
 import { useCountdown } from '../hooks/useCountdown';
 
 function pad(n: number): string {
@@ -11,15 +10,12 @@ interface CountdownTimerProps {
 }
 
 /**
- * Reusable launch-offer countdown pill. Reads the shared, persistent
- * per-visitor timer from useCountdown() - every instance of this component
- * on the page stays in sync since they all read the same localStorage-backed
- * end timestamp.
+ * Reusable launch-offer countdown pill, displayed as HH:MM:SS. Starts fresh
+ * on every page load (see useCountdown()) and freezes at 00:00:00 if left
+ * open past the offer duration - it never disables price or checkout.
  */
 export function CountdownTimer({ className = '' }: CountdownTimerProps) {
-  const { days, hours, minutes, seconds, isExpired } = useCountdown();
-
-  if (isExpired && EXPIRE_BEHAVIOR === 'hide') return null;
+  const { hours, minutes, seconds } = useCountdown();
 
   return (
     <span
@@ -27,8 +23,7 @@ export function CountdownTimer({ className = '' }: CountdownTimerProps) {
     >
       <Clock className="h-3.5 w-3.5" aria-hidden="true" />
       <span aria-live="off">
-        {days > 0 && `${days}d `}
-        {pad(hours)}h {pad(minutes)}m {pad(seconds)}s
+        {pad(hours)}:{pad(minutes)}:{pad(seconds)}
       </span>
     </span>
   );

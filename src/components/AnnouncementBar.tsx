@@ -1,16 +1,12 @@
-import { Clock } from 'lucide-react';
 import { product } from '../config/product';
 import { formatPrice } from '../lib/pricing';
 import { useLaunchPricing } from '../hooks/useLaunchPricing';
 import { scrollToPricing } from '../lib/scrollToPricing';
 import { trackPurchaseCta } from '../lib/analytics';
-
-function pad(n: number) {
-  return n.toString().padStart(2, '0');
-}
+import { CountdownTimer } from './CountdownTimer';
 
 export function AnnouncementBar() {
-  const { isLaunchActive, remaining, price } = useLaunchPricing();
+  const { isLaunchActive, price } = useLaunchPricing();
 
   if (!isLaunchActive) return null;
 
@@ -30,14 +26,7 @@ export function AnnouncementBar() {
         <span className="hidden rounded-full border border-white/25 px-2.5 py-0.5 text-[10px] font-semibold uppercase tracking-wide sm:inline-block">
           One-Time Payment
         </span>
-        {remaining && (
-          <span className="flex items-center gap-1.5 rounded-full bg-black/30 px-2.5 py-1 text-[11px] font-medium tabular-nums">
-            <Clock className="h-3.5 w-3.5" aria-hidden="true" />
-            <span aria-live="off">
-              {remaining.days}d {pad(remaining.hours)}h {pad(remaining.minutes)}m {pad(remaining.seconds)}s
-            </span>
-          </span>
-        )}
+        <CountdownTimer />
         <button
           type="button"
           onClick={handleClick}

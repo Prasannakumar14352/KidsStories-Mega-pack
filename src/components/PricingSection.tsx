@@ -3,7 +3,9 @@ import { pricingBreakdown, pricingBreakdownSavings, pricingBreakdownTotal, produ
 import type { PricingBreakdownRow } from '../config/product';
 import { formatPrice } from '../lib/pricing';
 import { useLaunchPricing } from '../hooks/useLaunchPricing';
+import { useCountdown } from '../hooks/useCountdown';
 import { Checkout } from './Checkout';
+import { CountdownTimer } from './CountdownTimer';
 import { Container } from './ui/Container';
 
 function BreakdownRow({ label, value }: PricingBreakdownRow) {
@@ -33,7 +35,8 @@ function BreakdownRow({ label, value }: PricingBreakdownRow) {
 }
 
 export function PricingSection() {
-  const { price, hasDeadline, isLaunchActive } = useLaunchPricing();
+  const { price, isLaunchActive } = useLaunchPricing();
+  const { isExpired: isOfferExpired } = useCountdown();
 
   return (
     <section id="pricing" className="scroll-mt-28 py-16 sm:py-20 lg:py-24">
@@ -83,11 +86,16 @@ export function PricingSection() {
           </p>
 
           {isLaunchActive && (
-            <p className="mt-4 text-center text-xs font-medium text-brand-orange-light">
-              {hasDeadline
-                ? 'Launch price ends when the countdown reaches zero.'
-                : 'Introductory launch pricing is currently active.'}
-            </p>
+            <div className="mt-4 flex flex-col items-center gap-2 text-center text-xs font-medium text-brand-orange-light">
+              {isOfferExpired ? (
+                <p>Launch pricing ending soon.</p>
+              ) : (
+                <>
+                  <p>Offer ends in:</p>
+                  <CountdownTimer />
+                </>
+              )}
+            </div>
           )}
         </div>
       </Container>

@@ -7,6 +7,7 @@ import { scrollToPricing } from '../lib/scrollToPricing';
 import { trackPurchaseCta } from '../lib/analytics';
 import { Container } from './ui/Container';
 import { Button } from './ui/Button';
+import { CountdownTimer } from './CountdownTimer';
 import { ProductMockup } from './ProductMockup';
 
 const trustItems = [
@@ -59,6 +60,11 @@ export function HeroSection() {
             <Button variant="secondary" size="lg" onClick={() => goToAnchor('#included')}>
               See What&rsquo;s Included
             </Button>
+          </div>
+
+          <div className="mt-5 flex items-center gap-2 text-sm text-text-secondary">
+            <span>Launch price ends in</span>
+            <CountdownTimer className="text-text-primary" />
           </div>
 
           <ul className="mt-8 grid grid-cols-2 gap-x-4 gap-y-3 sm:flex sm:flex-wrap sm:gap-x-6">

@@ -7,7 +7,7 @@ import { Button } from './ui/Button';
 
 const regionOptions = [
   { region: 'IN' as const, label: '🇮🇳 India (₹ INR)' },
-  { region: 'INTL' as const, label: '🌍 International ($ USD)' },
+  // { region: 'INTL' as const, label: '🌍 International ($ USD)' },
 ];
 
 // --- DISABLED: Dodo Payments (kept for reference) ---

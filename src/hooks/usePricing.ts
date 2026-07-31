@@ -41,7 +41,7 @@ export interface PricingState {
   currency: Currency;
   amount: number;
   gateway: Gateway;
-  razorpayUrl: string | null;
+  hostedCheckoutUrl: string | null;
   loading: boolean;
   error: string | null;
   isManualOverride: boolean;
@@ -51,9 +51,10 @@ export interface PricingState {
 /**
  * Resolves region-based pricing client-side. The visitor always sees the
  * default (INTL/PayPal/USD) immediately - if an India IP is confirmed within
- * a few seconds it upgrades in place to INR/Razorpay. Detection never uses
- * browser locale or timezone, only the IP geolocation lookup, and always
- * falls back to the default on any failure, timeout, or slow response.
+ * a few seconds it upgrades in place to INR via whichever hosted gateway is
+ * active in src/config/region.ts. Detection never uses browser locale or
+ * timezone, only the IP geolocation lookup, and always falls back to the
+ * default on any failure, timeout, or slow response.
  */
 export function usePricing(): PricingState {
   const { isLaunchActive } = useLaunchPricing();
@@ -112,7 +113,7 @@ export function usePricing(): PricingState {
     currency: pricing.currency,
     amount,
     gateway: pricing.gateway,
-    razorpayUrl: pricing.razorpayUrl || null,
+    hostedCheckoutUrl: pricing.razorpayUrl || pricing.superProfileUrl || null,
     loading,
     error,
     isManualOverride: hasManualOverrideRef.current,

@@ -1,6 +1,6 @@
 import { product } from '../config/product';
 import { usePricing } from '../hooks/usePricing';
-import { useRazorpayCheckout } from '../hooks/useRazorpayCheckout';
+import { useHostedCheckout } from '../hooks/useHostedCheckout';
 import { formatPrice, formatUSD } from '../lib/pricing';
 import { PayPalCheckoutButton } from './PayPalCheckoutButton';
 import { Button } from './ui/Button';
@@ -15,7 +15,7 @@ const regionOptions = [
 // see src/config/dodo.ts. Reverted back to the Razorpay + PayPal region
 // split below. To restore Dodo, swap this file's body back to the version
 // below and re-disable src/hooks/usePricing.ts, src/config/region.ts,
-// src/hooks/useRazorpayCheckout.ts and src/components/PayPalCheckoutButton.tsx.
+// src/hooks/useHostedCheckout.ts and src/components/PayPalCheckoutButton.tsx.
 //
 // import { DODO_PAYMENT_LINK } from '../config/dodo';
 // import { trackBeginCheckout, trackPurchaseCta } from '../lib/analytics';
@@ -42,13 +42,14 @@ const regionOptions = [
 // --- END DISABLED: Dodo Payments ---
 
 /**
- * Region-aware checkout: shows the Razorpay button for India (INR) and the
- * PayPal button for everyone else (USD), based on an IP geolocation lookup
- * with a manual toggle as a fallback for when detection gets it wrong.
+ * Region-aware checkout: shows the hosted-checkout button for India (INR,
+ * currently SuperProfile - see src/config/region.ts) and the PayPal button
+ * for everyone else (USD), based on an IP geolocation lookup with a manual
+ * toggle as a fallback for when detection gets it wrong.
  */
 export function Checkout() {
-  const { region, currency, amount, gateway, razorpayUrl, loading, error, setRegion } = usePricing();
-  const { handlePayment, isRedirecting } = useRazorpayCheckout(razorpayUrl);
+  const { region, currency, amount, gateway, hostedCheckoutUrl, loading, error, setRegion } = usePricing();
+  const { handlePayment, isRedirecting } = useHostedCheckout(hostedCheckoutUrl);
 
   const formattedAmount = currency === 'INR' ? formatPrice(amount) : formatUSD(amount);
 
@@ -72,19 +73,19 @@ export function Checkout() {
         ))}
       </div>
 
-      {gateway === 'razorpay' ? (
+      {gateway !== 'paypal' ? (
         <>
           <Button
             variant="primary"
             size="lg"
             className="mt-5 w-full"
             onClick={handlePayment}
-            disabled={isRedirecting || !razorpayUrl}
+            disabled={isRedirecting || !hostedCheckoutUrl}
             aria-busy={isRedirecting}
           >
             {isRedirecting ? 'Opening Secure Payment…' : `Get Instant Access for ${formattedAmount}`}
           </Button>
-          {!razorpayUrl && (
+          {!hostedCheckoutUrl && (
             <p className="mt-3 text-center text-xs text-text-muted" role="status">
               Payment temporarily unavailable. Please try again shortly or contact{' '}
               <a href={`mailto:${product.supportEmail}`} className="text-brand-orange-light">

@@ -1,7 +1,7 @@
 import { product } from './product';
 
 export type Region = 'IN' | 'INTL';
-export type Gateway = 'razorpay' | 'paypal';
+export type Gateway = 'razorpay' | 'superprofile' | 'paypal';
 export type Currency = 'INR' | 'USD';
 
 export interface RegionPricing {
@@ -10,24 +10,36 @@ export interface RegionPricing {
   gateway: Gateway;
   launchAmount: number;
   regularAmount: number;
-  /** Only set for the 'razorpay' gateway - the hosted Razorpay Payment Page URL. */
+  /** Only set when gateway is 'razorpay' - the hosted Razorpay Payment Page URL. */
   razorpayUrl?: string;
+  /** Only set when gateway is 'superprofile' - the hosted SuperProfile checkout URL. */
+  superProfileUrl?: string;
 }
 
 /**
  * Single client-side config module for region-based pricing. India pays in
- * INR via Razorpay; every other country pays in USD via PayPal. Both the
- * pricing hook and the Checkout component read from this one place only, so
- * currency/gateway/amount can never drift apart per region.
+ * INR via a hosted checkout link (currently SuperProfile); every other
+ * country pays in USD via PayPal. Both the pricing hook and the Checkout
+ * component read from this one place only, so currency/gateway/amount can
+ * never drift apart per region.
+ *
+ * To swap India's gateway, move the comment markers below so exactly one
+ * block is active - nothing else in the app needs to change.
  */
 export const regionPricing: Record<Region, RegionPricing> = {
   IN: {
     region: 'IN',
     currency: 'INR',
-    gateway: 'razorpay',
     launchAmount: product.launchPrice,
     regularAmount: product.regularPrice,
-    razorpayUrl: import.meta.env.VITE_RAZORPAY_PAYMENT_PAGE_URL || '',
+
+    // --- India via Razorpay (DISABLED - uncomment to re-enable) ---
+    // gateway: 'razorpay',
+    // razorpayUrl: import.meta.env.VITE_RAZORPAY_PAYMENT_PAGE_URL || '',
+
+    // --- India via SuperProfile (ACTIVE) ---
+    gateway: 'superprofile',
+    superProfileUrl: import.meta.env.VITE_SUPERPROFILE_PAYMENT_URL || '',
   },
   INTL: {
     region: 'INTL',

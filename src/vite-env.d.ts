@@ -2,6 +2,7 @@
 
 interface ImportMetaEnv {
   readonly VITE_RAZORPAY_PAYMENT_PAGE_URL?: string;
+  readonly VITE_SUPERPROFILE_PAYMENT_URL?: string;
   readonly VITE_PAYPAL_CLIENT_ID?: string;
   readonly VITE_DRIVE_FILE_ID?: string;
   readonly VITE_EMAILJS_SERVICE_ID?: string;

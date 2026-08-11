@@ -7,14 +7,14 @@
   --background-secondary: #0b0b0d;
   --surface: #111114;
   --surface-raised: #17171b;
-  --brand-orange: #ff6a00;
-  --brand-orange-dark: #e65300;
-  --brand-orange-light: #ff8a32;
+  --brand-orange: #f57c00;
+  --brand-orange-dark: #e66a00;
+  --brand-orange-light: #ff9a1f;
   --text-primary: #fafafa;
   --text-secondary: #b5b5be;
   --text-muted: #85858f;
   --border: #29292f;
-  --border-bright: rgba(255, 106, 0, 0.35);
+  --border-bright: rgba(245, 124, 0, 0.35);
 }
 
 * {

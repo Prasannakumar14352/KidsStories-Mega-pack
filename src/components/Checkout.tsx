@@ -4,6 +4,8 @@ import { useHostedCheckout } from '../hooks/useHostedCheckout';
 import { formatPrice, formatUSD } from '../lib/pricing';
 import { PayPalCheckoutButton } from './PayPalCheckoutButton';
 import { Button } from './ui/Button';
+import { TrustStrip } from './TrustStrip';
+import { GuaranteeBadge } from './GuaranteeBadge';
 
 const regionOptions = [
   { region: 'IN' as const, label: '🇮🇳 India (₹ INR)' },
@@ -78,12 +80,12 @@ export function Checkout() {
           <Button
             variant="primary"
             size="lg"
-            className="mt-5 w-full"
+            className="mt-5 w-full font-extrabold"
             onClick={handlePayment}
             disabled={isRedirecting || !hostedCheckoutUrl}
             aria-busy={isRedirecting}
           >
-            {isRedirecting ? 'Opening Secure Payment…' : `Get Instant Access for ${formattedAmount}`}
+            {isRedirecting ? 'Opening Secure Payment…' : `Get Instant Access — ${formattedAmount}`}
           </Button>
           {!hostedCheckoutUrl && (
             <p className="mt-3 text-center text-xs text-text-muted" role="status">
@@ -103,6 +105,9 @@ export function Checkout() {
           <PayPalCheckoutButton amount={amount} />
         </div>
       )}
+
+      <GuaranteeBadge className="mt-4 justify-center" />
+      <TrustStrip className="mt-3 justify-center" />
 
       {gateway === 'paypal' && (
         <p className="mt-3 text-center text-xs text-text-muted">

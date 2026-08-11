@@ -9,6 +9,8 @@ import { Container } from './ui/Container';
 import { Button } from './ui/Button';
 import { CountdownTimer } from './CountdownTimer';
 import { ProductMockup } from './ProductMockup';
+import { TrustStrip } from './TrustStrip';
+import { GuaranteeBadge } from './GuaranteeBadge';
 
 const trustItems = [
   { icon: Zap, label: 'Instant Digital Access' },
@@ -54,13 +56,16 @@ export function HeroSection() {
           </p>
 
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-            <Button variant="primary" size="lg" onClick={handleHeroCta}>
-              Get the Complete Bundle for {formatPrice(price)}
+            <Button variant="primary" size="lg" className="font-extrabold" onClick={handleHeroCta}>
+              Get Instant Access — {formatPrice(price)}
             </Button>
             <Button variant="secondary" size="lg" onClick={() => goToAnchor('#included')}>
               See What&rsquo;s Included
             </Button>
           </div>
+
+          <GuaranteeBadge className="mt-3 justify-start" />
+          <TrustStrip className="mt-3 justify-start" />
 
           <div className="mt-5 flex items-center gap-2 text-sm text-text-secondary">
             <span>Launch price ends in</span>

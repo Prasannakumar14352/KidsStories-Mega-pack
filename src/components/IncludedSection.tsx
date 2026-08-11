@@ -1,4 +1,4 @@
-import { CheckCircle2, File, FileArchive, Folder } from 'lucide-react';
+import { CheckCircle2, PackageCheck } from 'lucide-react';
 import { zipContents } from '../config/product';
 import { Container } from './ui/Container';
 
@@ -41,22 +41,18 @@ export function IncludedSection() {
         <div className="flex flex-col justify-center">
           <div className="rounded-2xl border border-border bg-surface p-5 shadow-orange-glow sm:p-6">
             <div className="flex items-center gap-2.5 border-b border-border pb-4">
-              <FileArchive className="h-5 w-5 text-brand-orange-light" aria-hidden="true" />
-              <p className="break-all font-display text-sm font-semibold text-text-primary sm:text-base">
-                PRODXSTORE_50_Kids_Stories_Mega_Bundle.zip
+              <PackageCheck className="h-5 w-5 text-brand-orange-light" aria-hidden="true" />
+              <p className="font-display text-sm font-semibold text-text-primary sm:text-base">
+                Your Complete Download Package
               </p>
             </div>
             <ul className="mt-4 space-y-2.5">
-              {zipContents.map((entry) => {
-                const isFolder = !entry.includes('.');
-                const Icon = isFolder ? Folder : File;
-                return (
-                  <li key={entry} className="flex items-center gap-2.5 text-sm text-text-secondary">
-                    <Icon className="h-4 w-4 shrink-0 text-text-muted" aria-hidden="true" />
-                    <span className="break-all font-mono text-[13px]">{entry}</span>
-                  </li>
-                );
-              })}
+              {zipContents.map((entry) => (
+                <li key={entry} className="flex items-center gap-2.5 text-sm text-text-secondary">
+                  <CheckCircle2 className="h-4 w-4 shrink-0 text-brand-orange-light" aria-hidden="true" />
+                  <span>{entry}</span>
+                </li>
+              ))}
             </ul>
           </div>
 

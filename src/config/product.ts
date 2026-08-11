@@ -214,61 +214,43 @@ export const categories: Category[] = [
 
 export const faqs: FaqItem[] = [
   {
-    question: 'What exactly will I receive?',
+    question: 'How do I receive the bundle after I pay?',
     answer:
-      'You will receive one organised ZIP package containing a Read Me First guide, a combined PDF with all 50 illustrated stories, an editable master DOCX, a combined bonus pack, editable bonus files and the Personal and Classroom Use Licence.',
+      'Instantly. The moment your payment is confirmed, you get an automatic download link on screen and in your email. No waiting, no shipping — everything is digital and delivered within seconds.',
   },
   {
-    question: 'Is this a physical book?',
-    answer: 'No. This is a digital-download product. Nothing will be shipped to your address.',
-  },
-  {
-    question: 'What age group is the collection suitable for?',
+    question: 'What files do I get and what formats are they in?',
     answer:
-      'The collection is generally suitable for children ages 6–12. Parent-guided reading is recommended for approximately ages 6–10, while confident readers around ages 9–12 may read independently.',
+      'You get all 50 illustrated stories as ready-to-read PDFs, plus one fully editable master document in DOCX (Word) format so you can adjust names, text or reading level yourself. You also receive all 5 reading bonuses in the same download.',
   },
   {
     question: 'Can I print the stories?',
     answer:
-      'Yes. You may print the material for your own household or for one classroom, subject to the included Personal and Classroom Use Licence.',
+      'Yes. Every story is print-ready. Print them at home, at a print shop, or in your classroom as many times as you like for your own children or students.',
   },
   {
-    question: 'Why is an editable DOCX included?',
+    question: 'What devices does it work on?',
     answer:
-      'The editable master document allows parents and teachers to add permitted notes, questions and classroom instructions for their own household or classroom. It does not include resale or redistribution rights.',
+      'Any device — phone, tablet, laptop or computer. PDFs open on everything, and the editable DOCX opens in Microsoft Word, Google Docs or any free word processor.',
   },
   {
-    question: 'Can I resell or share these files?',
+    question: 'What age group is this for?',
     answer:
-      'No. The customer edition is licensed for personal and single-classroom use. Reselling, redistributing, publicly uploading, sharing the ZIP or commercially republishing modified versions is not allowed.',
+      'The bundle is designed for children ages 6 to 12, with stories spanning early readers to more confident readers. The variety means it grows with your child instead of being outgrown in a year.',
   },
   {
-    question: 'What software do I need?',
+    question: 'Is this a one-time payment or a subscription?',
+    answer: `One-time payment. You pay ₹${product.launchPrice} once and the entire bundle is yours forever — no monthly fees, no renewals, no hidden charges.`,
+  },
+  {
+    question: 'Can teachers or homeschoolers use this?',
     answer:
-      'The storybook PDF works with common PDF readers on phones, tablets and computers. The editable DOCX can be opened with Microsoft Word or a compatible document editor.',
+      "Absolutely. It's built for homes, classrooms and homeschooling. The editable file lets teachers adapt stories for lessons, and printing rights cover your students.",
   },
   {
-    question: 'How will I receive the product?',
+    question: 'What if I have a problem with my download?',
     answer:
-      'After successful payment, the existing checkout and digital-delivery system will provide access to the downloadable ZIP package.',
-  },
-  {
-    question: `Are the bonuses included in the ₹${product.launchPrice} price?`,
-    answer: 'Yes. All five listed bonuses are included during the current offer at no additional charge.',
-  },
-  {
-    question: 'Is there a recurring payment?',
-    answer: 'No. The displayed price is a one-time payment. There is no monthly or annual subscription.',
-  },
-  {
-    question: 'Can teachers use the bundle?',
-    answer:
-      'Yes. One purchaser may use the material in one classroom. Additional teachers or separate classrooms should purchase their own licences unless a broader licence is offered separately.',
-  },
-  {
-    question: 'What should I do if my download does not work?',
-    answer:
-      'Contact the support address shown on the website with the email used for payment and the order reference. Support will verify the order and assist with access.',
+      "Your purchase is covered. If you have any trouble accessing or downloading your files, reach out and we'll make it right — your download is guaranteed.",
   },
 ];
 
@@ -288,11 +270,16 @@ export const stats = [
   { value: '1', label: 'Easy Download' },
 ];
 
+/**
+ * Benefit-framed labels for the "what's inside" package summary - never
+ * show raw filenames (e.g. "*.zip", "*.pdf" as a literal file name) to
+ * customers.
+ */
 export const zipContents = [
-  '01_READ_ME_FIRST.pdf',
-  '02_50_Kids_Stories_Mega_Book.pdf',
-  '03_50_Kids_Stories_Editable_Master.docx',
-  '04_Exclusive_Bonus_Pack.pdf',
-  '05_Editable_Bonus_Files',
-  '06_Personal_Classroom_Use_License.pdf',
+  'Read Me First guide (PDF)',
+  '50 ready-to-read illustrated stories (PDF)',
+  '1 fully editable master document (DOCX)',
+  '5 interactive reading bonuses (PDF)',
+  'Editable bonus activity files (DOCX)',
+  'Personal & classroom use licence (PDF)',
 ];

@@ -7,12 +7,14 @@ import { SEO } from '../components/SEO';
 import { AnnouncementBar } from '../components/AnnouncementBar';
 import { Header } from '../components/Header';
 import { HeroSection } from '../components/HeroSection';
+import { PeekInsideSection } from '../components/PeekInsideSection';
 import { StatsStrip } from '../components/StatsStrip';
 import { BenefitsSection } from '../components/BenefitsSection';
 import { IncludedSection } from '../components/IncludedSection';
 import { CategoryGrid } from '../components/CategoryGrid';
 import { FormatsSection } from '../components/FormatsSection';
 import { BonusSection } from '../components/BonusSection';
+import { TestimonialsSection } from '../components/TestimonialsSection';
 import { AudienceSection } from '../components/AudienceSection';
 import { HowItWorks } from '../components/HowItWorks';
 import { ValueStack } from '../components/ValueStack';
@@ -68,12 +70,14 @@ export function LandingPage() {
       <Header />
       <main className="pb-20 lg:pb-0">
         <HeroSection />
+        <PeekInsideSection />
         <StatsStrip />
         <BenefitsSection />
         <IncludedSection />
         <CategoryGrid />
         <FormatsSection />
         <BonusSection />
+        <TestimonialsSection />
         <AudienceSection />
         <HowItWorks />
         <ValueStack />

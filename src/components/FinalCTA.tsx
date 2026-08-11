@@ -6,6 +6,8 @@ import { trackPurchaseCta } from '../lib/analytics';
 import { Container } from './ui/Container';
 import { Button } from './ui/Button';
 import { ProductMockup } from './ProductMockup';
+import { TrustStrip } from './TrustStrip';
+import { GuaranteeBadge } from './GuaranteeBadge';
 
 export function FinalCTA() {
   const { price } = useLaunchPricing();
@@ -44,10 +46,14 @@ export function FinalCTA() {
           </div>
 
           <div className="mt-8 flex justify-center lg:justify-start">
-            <Button variant="primary" size="lg" onClick={handleFinalCta}>
-              Get the Complete Mega Bundle
+            <Button variant="primary" size="lg" className="font-extrabold" onClick={handleFinalCta}>
+              Get Instant Access — {formatPrice(price)}
             </Button>
           </div>
+
+          <GuaranteeBadge className="mt-4 justify-center lg:justify-start" />
+          <TrustStrip className="mt-3 justify-center lg:justify-start" />
+
           <p className="mt-4 text-sm text-text-muted">One-time payment. Instant digital access. No subscription.</p>
         </div>
 

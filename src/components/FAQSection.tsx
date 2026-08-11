@@ -5,7 +5,7 @@ import { trackFaqOpen } from '../lib/analytics';
 import { Container } from './ui/Container';
 
 export function FAQSection() {
-  const [openIndexes, setOpenIndexes] = useState<Set<number>>(new Set());
+  const [openIndexes, setOpenIndexes] = useState<Set<number>>(new Set([0]));
 
   const toggle = (index: number, question: string) => {
     setOpenIndexes((prev) => {

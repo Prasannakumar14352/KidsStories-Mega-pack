@@ -46,7 +46,7 @@ export const legalPages: Record<string, LegalPageContent> = {
       {
         heading: '4. Refunds',
         paragraphs: [
-          'Refund requests are handled in accordance with the published Refund Policy. Because our products are delivered digitally and access is granted immediately after payment, change-of-mind refunds are normally unavailable once files have been delivered, subject to applicable consumer law.',
+          'Purchases are covered by a 7-day money-back guarantee. Refund requests are handled in accordance with the published Refund Policy.',
         ],
       },
       {
@@ -184,7 +184,7 @@ export const legalPages: Record<string, LegalPageContent> = {
     slug: 'refund-policy',
     title: 'Refund Policy',
     description: 'When refunds are available for digital products purchased from PRODXSTORE.',
-    intro: 'Because PRODXSTORE sells digital downloads, our refund policy reflects the fact that access to purchased files is granted immediately after payment.',
+    intro: 'Every purchase of the 50 Illustrated Kids Stories Mega Bundle is covered by a 7-day money-back guarantee.',
     sections: [
       {
         heading: '1. Delivery Issues',
@@ -193,9 +193,10 @@ export const legalPages: Record<string, LegalPageContent> = {
         ],
       },
       {
-        heading: '2. Change-of-Mind Requests',
+        heading: '2. 7-Day Money-Back Guarantee',
         paragraphs: [
-          'Change-of-mind refunds are normally unavailable once the digital files have been delivered, because the product has already been made fully accessible to you. This is standard practice for digital goods and is subject to applicable consumer law in your jurisdiction.',
+          'If you are not satisfied with the bundle for any reason, email us within 7 days of your purchase date for a full refund. Refunds are returned to your original payment method through Razorpay and can take a few business days to appear, depending on your bank.',
+          'One refund per customer for this product. Repeated purchase-and-refund patterns may not be honoured.',
         ],
       },
       {

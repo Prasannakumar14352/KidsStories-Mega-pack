@@ -13,12 +13,12 @@ export function AccessPromise() {
       <Container>
         <div className="mx-auto max-w-2xl rounded-2xl border border-border bg-surface p-7 text-center sm:p-10">
           <h2 className="font-display text-2xl font-bold text-text-primary sm:text-3xl">
-            Your Download Is Covered
+            7-Day Money-Back Guarantee
           </h2>
           <p className="mx-auto mt-4 max-w-prose text-sm leading-relaxed text-text-secondary sm:text-base">
-            This is a digital product delivered after successful payment. If you experience a duplicate
-            charge, corrupted download, missing file or technical delivery problem, contact support and we
-            will help restore access or provide an appropriate resolution.
+            If the bundle isn&apos;t right for your family or classroom, email us within 7 days of purchase
+            for a full refund. And if you ever have a duplicate charge, corrupted download, missing file or
+            other delivery problem, contact support and we will put it right.
           </p>
 
           <div className="mt-7 flex flex-wrap items-center justify-center gap-x-8 gap-y-3">
@@ -31,8 +31,8 @@ export function AccessPromise() {
           </div>
 
           <p className="mx-auto mt-7 max-w-prose text-xs leading-relaxed text-text-muted">
-            Change-of-mind refunds are normally unavailable after digital access has been supplied, subject
-            to applicable consumer law and the published refund policy.
+            Refunds are returned to your original payment method. See the refund policy for the full
+            terms.
           </p>
         </div>
       </Container>

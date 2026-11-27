@@ -46,7 +46,7 @@ export const legalPages: Record<string, LegalPageContent> = {
       {
         heading: '4. Refunds',
         paragraphs: [
-          'Refund requests are handled in accordance with the published Refund Policy. Because our products are delivered digitally and access is granted immediately after payment, change-of-mind refunds are normally unavailable once files have been delivered, subject to applicable consumer law.',
+          'Refund requests are handled in accordance with the published Refund Policy, which includes a 7-day money-back guarantee: you can request a full refund within 7 days of your purchase date.',
         ],
       },
       {
@@ -183,25 +183,26 @@ export const legalPages: Record<string, LegalPageContent> = {
   'refund-policy': {
     slug: 'refund-policy',
     title: 'Refund Policy',
-    description: 'When refunds are available for digital products purchased from PRODXSTORE.',
-    intro: 'Because PRODXSTORE sells digital downloads, our refund policy reflects the fact that access to purchased files is granted immediately after payment.',
+    description: 'The 7-day money-back guarantee and refund process for digital products purchased from PRODXSTORE.',
+    intro: 'Every PRODXSTORE digital product comes with a 7-day money-back guarantee, so you can download the files and check they suit you before you decide.',
     sections: [
       {
-        heading: '1. Delivery Issues',
+        heading: '1. 7-Day Money-Back Guarantee',
+        paragraphs: [
+          'If you are not satisfied with your purchase, you can request a full refund within 7 days of your purchase date. Approved refunds are returned to your original payment method through our payment gateway (Razorpay); depending on your bank, it can take a few business days to appear.',
+          'Conditions: requests must be made within 7 days of the original purchase date, and there is one refund per customer or household for this product. Repeated purchase-and-refund patterns may not be honoured.',
+        ],
+      },
+      {
+        heading: '2. Delivery Issues',
         paragraphs: [
           'If you experience a duplicate charge, a corrupted download, a missing file, or any other technical delivery problem, contact us and we will help restore access, resend the files, or provide an appropriate resolution.',
         ],
       },
       {
-        heading: '2. Change-of-Mind Requests',
+        heading: '3. How to Request a Refund or Assistance',
         paragraphs: [
-          'Change-of-mind refunds are normally unavailable once the digital files have been delivered, because the product has already been made fully accessible to you. This is standard practice for digital goods and is subject to applicable consumer law in your jurisdiction.',
-        ],
-      },
-      {
-        heading: '3. How to Request Assistance',
-        paragraphs: [
-          `Email ${product.supportEmail} with the email address used for payment and your order reference. Our support team will review your request and respond with the next steps.`,
+          `Email ${product.supportEmail} within 7 days of purchase with the email address used for payment and your order or payment reference. We aim to respond within 1–2 business days.`,
         ],
       },
     ],

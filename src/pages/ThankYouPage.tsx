@@ -149,6 +149,14 @@ export default function ThankYouPage() {
           </p>
         )}
 
+        {emailConfig.downloadUrl && (
+          <p className="mt-3 max-w-sm text-xs leading-relaxed text-text-muted">
+            The bundle is a large file (about 75 MB). If Google Drive says it &ldquo;can&rsquo;t scan this
+            file for viruses&rdquo;, that is normal for files this size &mdash; click{' '}
+            <strong className="text-text-secondary">Download anyway</strong>.
+          </p>
+        )}
+
         {entryEmail.email && (
           <div className="mt-4" role="status">
             <p className="text-xs text-text-muted">

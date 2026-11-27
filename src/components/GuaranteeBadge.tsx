@@ -12,7 +12,7 @@ export function GuaranteeBadge({ className = 'justify-center' }: GuaranteeBadgeP
   return (
     <p className={`flex items-center gap-1.5 text-xs font-medium text-text-muted ${className}`}>
       <ShieldCheck className="h-4 w-4 shrink-0 text-brand-orange-light" aria-hidden="true" />
-      Covered by our download guarantee
+      7-day money-back guarantee
     </p>
   );
 }

@@ -250,7 +250,7 @@ export const faqs: FaqItem[] = [
   {
     question: 'What if I have a problem with my download?',
     answer:
-      "Your purchase is covered. If you have any trouble accessing or downloading your files, reach out and we'll make it right — your download is guaranteed.",
+      "Your purchase is covered. If you have any trouble accessing or downloading your files, reach out and we'll make it right. You also get a 7-day money-back guarantee: if you're not happy, email us within 7 days of purchase for a full refund.",
   },
 ];
 

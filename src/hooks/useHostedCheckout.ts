@@ -5,7 +5,7 @@ const REDIRECT_FAILSAFE_MS = 4000;
 
 /**
  * The only path in the app that opens a hosted checkout page for India
- * (currently SuperProfile - see src/config/region.ts to swap back to
+ * (currently pay.prodxstore.com - see src/config/region.ts to swap back to
  * Razorpay). Every other CTA scrolls to the pricing card via
  * scrollToPricing() instead - this hook is wired to that card's button
  * alone, and sends the customer straight to the configured hosted checkout

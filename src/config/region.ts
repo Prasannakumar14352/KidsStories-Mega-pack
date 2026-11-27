@@ -1,7 +1,7 @@
 import { product } from './product';
 
 export type Region = 'IN' | 'INTL';
-export type Gateway = 'razorpay' | 'superprofile' | 'paypal';
+export type Gateway = 'prodxstore' | 'razorpay' | 'superprofile' | 'paypal';
 export type Currency = 'INR' | 'USD';
 
 export interface RegionPricing {
@@ -14,11 +14,13 @@ export interface RegionPricing {
   razorpayUrl?: string;
   /** Only set when gateway is 'superprofile' - the hosted SuperProfile checkout URL. */
   superProfileUrl?: string;
+  /** Only set when gateway is 'prodxstore' - the shared ProdXStore checkout (pay.prodxstore.com). */
+  prodxstoreUrl?: string;
 }
 
 /**
  * Single client-side config module for region-based pricing. India pays in
- * INR via a hosted checkout link (currently SuperProfile); every other
+ * INR via a hosted checkout link (currently pay.prodxstore.com); every other
  * country pays in USD via PayPal. Both the pricing hook and the Checkout
  * component read from this one place only, so currency/gateway/amount can
  * never drift apart per region.
@@ -37,9 +39,18 @@ export const regionPricing: Record<Region, RegionPricing> = {
     // gateway: 'razorpay',
     // razorpayUrl: import.meta.env.VITE_RAZORPAY_PAYMENT_PAGE_URL || '',
 
-    // --- India via SuperProfile (ACTIVE) ---
-    gateway: 'superprofile',
-    superProfileUrl: import.meta.env.VITE_SUPERPROFILE_PAYMENT_URL || '',
+    // --- India via SuperProfile (DISABLED - uncomment to re-enable) ---
+    // gateway: 'superprofile',
+    // superProfileUrl: import.meta.env.VITE_SUPERPROFILE_PAYMENT_URL || '',
+
+    // --- India via ProdXStore checkout (ACTIVE) ---
+    // One Razorpay checkout for every ProdXStore site. Price comes from the
+    // product in hq.prodxstore.com/store; after payment the buyer is sent to
+    // this site's /thank-you page.
+    gateway: 'prodxstore',
+    prodxstoreUrl:
+      import.meta.env.VITE_PRODXSTORE_CHECKOUT_URL ||
+      'https://pay.prodxstore.com/checkout/kids-stories-bundle',
   },
   INTL: {
     region: 'INTL',

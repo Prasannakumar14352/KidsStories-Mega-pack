@@ -113,7 +113,7 @@ export function usePricing(): PricingState {
     currency: pricing.currency,
     amount,
     gateway: pricing.gateway,
-    hostedCheckoutUrl: pricing.razorpayUrl || pricing.superProfileUrl || null,
+    hostedCheckoutUrl: pricing.prodxstoreUrl || pricing.razorpayUrl || pricing.superProfileUrl || null,
     loading,
     error,
     isManualOverride: hasManualOverrideRef.current,
